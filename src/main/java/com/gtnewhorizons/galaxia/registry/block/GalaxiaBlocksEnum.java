@@ -5,11 +5,10 @@ import static com.gtnewhorizons.galaxia.registry.block.base.GalaxiaBlock.reg;
 import net.minecraft.block.Block;
 
 import com.gtnewhorizons.galaxia.registry.block.base.BlockVariant;
-import com.gtnewhorizons.galaxia.registry.block.module.BlockModuleController;
-import com.gtnewhorizons.galaxia.registry.block.module.BlockModuleShell;
-import com.gtnewhorizons.galaxia.registry.block.tileentities.TileEntityModuleController;
 import com.gtnewhorizons.galaxia.registry.dimension.DimensionEnum;
 import com.gtnewhorizons.galaxia.registry.items.GalaxiaItemList;
+import com.gtnewhorizons.galaxia.rocketmodules.tileentities.BlockSilo;
+import com.gtnewhorizons.galaxia.rocketmodules.tileentities.TileEntitySilo;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -20,8 +19,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public enum GalaxiaBlocksEnum {
     // spotless:off
 
-    MODULE_CONTROLLER(new BlockModuleController(), "module_controller"),
-    MODULE_SHELL(new BlockModuleShell(), "module_shell"),
+    SILO_CONTROLLER(new BlockSilo(), "silo_controller"),
     ; // leave trailing semicolon
 
     // spotless:on
@@ -34,7 +32,7 @@ public enum GalaxiaBlocksEnum {
             GameRegistry.registerBlock(block.get(), block.name);
         }
 
-        GameRegistry.registerTileEntity(TileEntityModuleController.class, "galaxia_module_controller");
+        GameRegistry.registerTileEntity(TileEntitySilo.class, "galaxia_silo_controller");
     }
 
     // spotless:off
