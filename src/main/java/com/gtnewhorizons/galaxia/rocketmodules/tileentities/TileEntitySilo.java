@@ -176,6 +176,7 @@ public class TileEntitySilo extends GalaxiaMultiblockBase<TileEntitySilo> implem
     protected void onStructureDisformed() {
         updateLinkedAssembler();
         shouldRender = false;
+        this.kill();
     }
 
     /**
@@ -599,7 +600,9 @@ public class TileEntitySilo extends GalaxiaMultiblockBase<TileEntitySilo> implem
      */
     public void kill() {
         modules.clear();
-        entityRocket.setDead();
+        if (this.getEntityRocket() != null) {
+            this.getEntityRocket().setDead();
+        }
     }
 
     /**
@@ -753,7 +756,7 @@ public class TileEntitySilo extends GalaxiaMultiblockBase<TileEntitySilo> implem
         super.updateEntity();
 
         if (!worldObj.isRemote) {
-            if (shouldRender && (entityRocket == null || entityRocket.isDead)) {
+            if (shouldRender && (entityRocket == null || entityRocket.isDead) && structureValid) {
                 spawnRocket();
             }
 
