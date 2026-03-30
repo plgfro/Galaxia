@@ -601,7 +601,8 @@ public class TileEntitySilo extends GalaxiaMultiblockBase<TileEntitySilo> implem
     public void kill() {
         modules.clear();
         if (this.getEntityRocket() != null) {
-            this.getEntityRocket().setDead();
+            this.getEntityRocket()
+                .setDead();
         }
     }
 
